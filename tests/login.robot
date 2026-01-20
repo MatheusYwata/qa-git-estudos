@@ -9,3 +9,8 @@ Cenário: Login com dados válidos
     Dado que o usuário acessa a tela de login
     Quando informa credenciais válidas
     Então o login é realizado com sucesso
+
+Cenário: Login com senha inválida
+    Dado que o usuário acessa a tela de login
+    Quando informa senha inválida
+    Então uma mensagem de erro é exibida
