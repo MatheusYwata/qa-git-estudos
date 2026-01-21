@@ -19,3 +19,8 @@ Cenário: Login com usuário inválido
     Dado que o usuário acessa a tela de login
     E Loga com usuario invalido
     Então uma mensagem de erro é exibida
+
+Cenário: Login com usuário bloqueado
+    Dado que o usuário acessa a tela de login
+    Quando informa usuário bloqueado
+    Então o acesso é negado
