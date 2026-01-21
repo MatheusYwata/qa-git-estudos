@@ -34,3 +34,8 @@ Cenário: Login com campos vazios
     Dado que o usuário acessa a tela de login
     Quando deixa os campos vazios
     Então uma mensagem de erro é exibida solicitando o preenchimento dos campos
+
+Cenário: Login com usuário inativo
+    Dado que o usuário acessa a tela de login
+    Quando informa usuário inativo
+    Então o acesso é negado
