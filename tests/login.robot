@@ -24,3 +24,8 @@ Cenário: Login com usuário bloqueado
     Dado que o usuário acessa a tela de login
     Quando informa usuário bloqueado
     Então o acesso é negado
+
+Cenário: Login com senha expirada
+    Dado que o usuário acessa a tela de login
+    Quando informa senha expirada
+    Então o sistema solicita a troca de senha
