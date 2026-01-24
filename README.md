@@ -1,10 +1,10 @@
-##  Estudo de git
+###  Estudo de git
 
 Este repositório contém uma simulação de projeto para estudar e treinar comandos git.
 
 ---
 
-##  Tecnologias Utilizadas
+###  Tecnologias Utilizadas
 
 - Robot Framework  
 - SeleniumLibrary  
@@ -13,9 +13,9 @@ Este repositório contém uma simulação de projeto para estudar e treinar coma
 
 ---
 
-## Estrutura de comandos
+### Estrutura de comandos
 
-### Inicialização do repositório
+Inicialização do repositório:
 
 - 1️⃣ Após criar a pasta do projeto, abra-a no terminal e execute:
 
@@ -36,7 +36,8 @@ git pull
 git status
 ```
 
-📌 Nunca comece a trabalhar sem `git pull` quando estiver trabalhando em time. Para fins de treino solo o `git pull`é dispensável.
+📌 Nunca comece a trabalhar sem `git pull` quando estiver trabalhando em time. 
+📌 Para treino solo, o `git pull` pode ser dispensado desde que nada tenha sido alterado no GitHub.
 
 - 3️⃣ Criar branch para trabalhar
 ```bash
@@ -80,6 +81,17 @@ git status
 ```bash
 git commit -m "test: adicionar cenário de login com usuário inativo"
 ```
+📌 Fazer um `git add` seguido de um `git commit` por tipo de alteração
+
+##### Commits locais vs push
+Só para fixar conceito:
+
+```md
+📌 Commits são locais.  
+📌 git push envia todos os commits pendentes de uma vez para o GitHub.
+```
+
+
 - 7️⃣ Corrigir o último commit (se precisar)
 ```bash
 git add arquivo-esquecido
@@ -91,18 +103,28 @@ git push origin feature-nome-da-tarefa
 ```
 - 9️⃣ Pull Request (no GitHub)
 No site:
-  - abri PR
+  - abre PR
   - revisão 
   - aprovação
   - merge
   - deletar branch remota
 
+📌 O `git merge` local é usado apenas para treino ou projetos sem PR. Em trabalho em time, o merge acontece no GitHub via Pull Request.
+
 
 - 1️⃣0️⃣ Atualizar seu Git local após PR
+```bash
+git switch main
+ou 
+git checkout main
+
+git pull (trazer alteração do github remoto para local)
+```
+
 - 1️⃣1️⃣ Limpar branch local
 ```bash
 git branch -d feature-nome-da-tarefa
-git fetch --prune
+git fetch --prune (limpar referências de branches remotas que já foram deletadas no GitHub, para manter git limpo)
 ```
 
 ---
@@ -128,7 +150,7 @@ git stash pop
 ---
 ### 🎯 SCRIPT MENTAL (decisão rápida)
 ```bash
-Começar → git pull
+Começar (em time) → git pull
 Trabalhar → git status / git diff
 Commitar → git add / git commit
 Erro → git commit --amend
@@ -153,11 +175,29 @@ docs: atualizar README
 chore: ajustar estrutura de pastas
 ```
 ---
+### ⚠️ Erros comuns e correções rápidas
+
+#### Fiz alterações antes de criar branch
+```bash
+git switch -c feature-nova
+```
+#### Comitei na branch errada
+```bash
+git switch -c feature-correta
+git switch main
+git reset --hard HEAD~1 (⚠️ Usar apenas se o commit ainda NÃO foi enviado ao GitHub.)
+```
+#### Commit misturado
+```bash
+git reset --soft HEAD~1
+```
+
+---
 ### ✅ Se você seguir esse script
 Você:
 - não se perde
 - não quebra branch
-- nào cria histórico ruim
+- não cria histórico ruim
 - trabalha como QA de time
 - responde entrevista com segurança
 ---
