@@ -109,6 +109,17 @@ No site:
   - merge
   - deletar branch remota
 
+Se o PR não abrir automaticamente, faça isso para abrir manualmente:
+1️) Vá até o repositório no GitHub
+2️) Clique em **Pull requests**
+3️) Clique em **New pull request**
+4️) Em **base** selecione: main
+5) Em **compare** selecione: nova-branch
+6) Clique em **Create pull request**
+Pronto 🎉
+Então só fazer a aprovaçào e o **merge** normalmente
+
+
 📌 O `git merge` local é usado apenas para treino ou projetos sem PR. Em trabalho em time, o merge acontece no GitHub via Pull Request.
 
 
