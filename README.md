@@ -23,13 +23,124 @@ Inicialização do repositório:
 git init
 git status
 ```
-- 2️⃣ Se for conectar ao GitHub pela primeira vez:
+Depois crie a branch principal:
 ```bash
-git remote add origin https://github.com/SEU_USUARIO/qa-git-estudos.git
 git branch -M main
+```
+####  Criando o arquivo .gitignore
+
+O `.gitignore` define arquivos e pastas que o Git não deve versionar.
+
+Criar o arquivo `.gitignore` no VS Code
+E dentro dele colocar:
+
+```bash
+# ===============================
+# Python
+# ===============================
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.envrc
+
+# ===============================
+# Robot Framework outputs
+# ===============================
+
+output.xml
+log.html
+report.html
+
+# Screenshots gerados pelos testes
+*.png
+
+# Pastas comuns de resultados
+results/
+reports/
+logs/
+screenshots/
+
+# ===============================
+# Test artifacts / temporary
+# ===============================
+
+*.log
+*.tmp
+*.cache
+
+# ===============================
+# IDE / Editor
+# ===============================
+
+.vscode/
+.idea/
+
+# ===============================
+# Sistema operacional
+# ===============================
+
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Arquivos sensíveis
+# ===============================
+
+*.env
+*.secret
+*.key
+*.pem
+```
+
+📌 O .gitignore não remove arquivos que já foram versionados.
+Para parar de versionar um arquivo use:
+```bash
+git rm --cached arquivo
+```
+
+
+
+- 2️⃣ ***Se*** for conectar ao GitHub pela primeira vez:
+
+Crie o repositório no GitHub (vazio)
+Conecte o repositório local ao Github que foi criado:
+```bash
+git remote add origin https://github.com/SEU_USUARIO/nome_do_repositorio
+git remote -v
+```
+Espera-se aparecer:
+```bash
+origin  https://github.com/Seu_Usuário/nome_do_repositorio (fetch)
+origin  https://github.com/Seu_Usuário/nome_do_repositorio (push)
+```
+
+ Crie o primeiro commit para enviar a branch main pela primeira vez:
+- Fazer alguma alteração, por exemplo criar a estrutura de pastas e:
+```bash
+git status
+git add .
+git commit -m "commit inicial do projeto"
 git push -u origin main
 ```
-- Começo do dia de trabalho (ROTINA OBRIGATÓRIA)
+📌 O -u cria o vínculo entre:
+
+- main local
+
+- main remota (origin/main)
+
+Depois disso, basta usar:
+```bahs
+git push
+git pull
+```
+
+#### Começo do dia de trabalho em equipe (ROTINA OBRIGATÓRIA)
 ```bash
 git switch main
 git pull
@@ -158,6 +269,17 @@ git restore arquivo
 git stash
 git stash pop
 ```
+
+ 🔍 Ver repositório vinculado
+ ```baah
+ git remote -v
+ ```
+ 🔍 Ver detalhes da conexão
+ ```bahs
+ git remote show origin
+ ```
+
+
 ---
 ### 🎯 SCRIPT MENTAL (decisão rápida)
 ```bash
@@ -198,10 +320,33 @@ git switch -c feature-correta
 git switch main
 git reset --hard HEAD~1 (⚠️ Usar apenas se o commit ainda NÃO foi enviado ao GitHub.)
 ```
+#### Stage misturado (git add)
+```bash
+git reset
+```
+📌 tira tudo do stage, depois adicione as pastas/arquivos separados.
 #### Commit misturado
+primeiro:
 ```bash
 git reset --soft HEAD~1
 ```
+depois:
+```bash
+git reset
+```
+📌 primeiro desfaz commit, depois tira tudo do stage para então adicionar as pastas/arquivos separados.
+
+#### Quero alterar o repositório remoto para outro nome
+
+Após ter alterado o nome do repositório no GitHub, faça assim para alterar o repositório remoto:
+```bash
+git remote set-url origin https://github.com/SEU_USUARIO/NOVO_REPO.git
+```
+#### Para parar de versionar um arquivo use:
+```bash
+git rm --cached arquivo
+```
+
 
 ---
 ### ✅ Se você seguir esse script
